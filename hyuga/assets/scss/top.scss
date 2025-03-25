@@ -242,30 +242,73 @@ body {
         }
     }
     &__list {
-        display: flex;
-        overflow-x: auto;
-        padding-bottom: 2em;
-        margin-bottom: 5em;
+        // display: flex;
+        // overflow-x: auto;
+        padding-bottom: 2.5em;
+        max-width: 1400px;
+        margin: 0 auto 5em;
+        -ms-overflow-style: none;/* IE, Edge 対応 */
+        scrollbar-width: none;/* Firefox 対応 */
         &::-webkit-scrollbar {
-            height: 1em; /* スクロールバーの高さ */
+            display: none;/* Chrome, Safari 対応 */
         }
-           
-        &::-webkit-scrollbar-thumb {
-            background: #FFF; /* ツマミの色 */
-            border-radius: 1em; /* ツマミ両端の丸み */
+        .simplebar-scrollbar::before {
+            background: #ffffff;
+            border-radius: 50em;
+            height: 1em !important;
+            margin-left: 0;
+            margin-top: 0;
+            opacity: 1;
+            top: 0;
+            left: 0;
+            right: 0;
         }
-           
-        &::-webkit-scrollbar-track {
-            background: linear-gradient(90deg, rgba(183,209,0,1) 0%, rgba(108,209,0,1) 100%); /* トラックの色 */
-            border-radius: 1em; /* トラック両端の丸み */
+        .simplebar-track {
+            background: linear-gradient(90deg, rgba(183,209,0,1) 0%, rgba(108,209,0,1) 100%);;
+            border-radius: 50em;
+            height: 1em !important;
+        }
+        // _::-webkit-full-page-media, _:future, :root .sample { //Safari
+        //     scrollbar-width: thin;
+        //     scrollbar-color: #FFF #B7D100;
+        // }
+        // @-moz-document url-prefix() { //firefox
+        //     scrollbar-width: thin;
+        //     scrollbar-color: #FFF #B7D100;
+        // }
+        // @media screen and (-webkit-min-device-pixel-ratio:0) { //chrome
+        //     &::-webkit-scrollbar {
+        //         height: 1em; /* スクロールバーの高さ */
+        //     }
+               
+        //     &::-webkit-scrollbar-thumb {
+        //         background: #FFF; /* ツマミの色 */
+        //         border-radius: 1em; /* ツマミ両端の丸み */
+        //     }
+               
+        //     &::-webkit-scrollbar-track {
+        //         background: linear-gradient(90deg, rgba(183,209,0,1) 0%, rgba(108,209,0,1) 100%); /* トラックの色 */
+        //         border-radius: 1em; /* トラック両端の丸み */
+        //     }
+        // }
+        @include min-screen($screen-md + 1) {
+            flex-wrap: wrap;
+        }
+        .simplebar-content {
+            display: flex;
+            @include min-screen($screen-md + 1) {
+                flex-wrap: wrap;
+            }
         }
         li {
-            width: 22%;
             flex-shrink: 0;
-            margin-right: 2%;
             font-weight: bold;
             background: #FFF;
             padding: 2em;
+            @include min-screen($screen-md + 1) {
+                width: 23%;
+                margin: 2% 1% 0;
+            }
             @include max-screen($screen-md) {
                 width: 42%;
                 margin-right: 3%;
@@ -472,6 +515,14 @@ body {
     }
 }
 .lineup-slider {
+    position: relative;
+    .swiper-container {
+        @include min-screen($screen-xs + 1) {
+            width: 90%;
+        }
+    }
+    .swiper-wrapper {
+    }
     .swiper-slide {
         height: auto;
     }
@@ -571,7 +622,12 @@ body {
     }
     &__list {
         font-size: (20em/16);
+        font-weight: 500;
         li {
+            cursor: pointer;
+            &:hover {
+                color: $gre;
+            }
             + li {
                 margin-top: 0.5em;
             }
@@ -588,6 +644,10 @@ body {
         }
     }
 }
+.studio-read {
+    text-align: center;
+    font-weight: 500;
+}
 .studio-slider {
     margin: 3em auto;
     max-width: 1280px;
@@ -595,6 +655,35 @@ body {
     position: relative;
     @include max-screen($screen-xs) {
         width: 90%;
+    }
+    .slick-arrow {
+        position: absolute;
+        top: 50%;
+        transform: translate(0,-50%);
+        transition: opacity .3s;
+        width: (27em/16);
+        height: (50em/16);
+        background-size: 100% auto;
+        text-indent: -9999px;
+        &.slick-disabled {
+            opacity: 0;
+        }
+    }
+    .slick-next {
+        right: auto;
+        left: calc(100% + 2em);
+        background-image: url(../img/common/arror_r.svg);
+        @include max-screen($screen-xs) {
+            left: calc(100% + 1em);
+        }
+    }
+    .slick-prev {
+        left: auto;
+        right: calc(100% + 2em);
+        background-image: url(../img/common/arror_l.svg);
+        @include max-screen($screen-xs) {
+            right: calc(100% + 1em);
+        }
     }
     .swiper-button-next,
     .swiper-button-prev {
@@ -638,6 +727,7 @@ body {
             padding: 1em 0;
             img {
                 width: 50%;
+                margin: 0 auto;
             }
         }
         .studio-txt {

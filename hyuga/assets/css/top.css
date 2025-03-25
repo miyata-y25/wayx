@@ -248,36 +248,66 @@
   }
 }
 .yourself-sec__list {
+  padding-bottom: 2.5em;
+  max-width: 1400px;
+  margin: 0 auto 5em;
+  -ms-overflow-style: none; /* IE, Edge 対応 */
+  scrollbar-width: none; /* Firefox 対応 */
+}
+.yourself-sec__list::-webkit-scrollbar {
+  display: none; /* Chrome, Safari 対応 */
+}
+.yourself-sec__list .simplebar-scrollbar::before {
+  background: #ffffff;
+  border-radius: 50em;
+  height: 1em !important;
+  margin-left: 0;
+  margin-top: 0;
+  opacity: 1;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+.yourself-sec__list .simplebar-track {
+  background: -webkit-gradient(linear, left top, right top, from(rgb(183, 209, 0)), to(rgb(108, 209, 0)));
+  background: -webkit-linear-gradient(left, rgb(183, 209, 0) 0%, rgb(108, 209, 0) 100%);
+  background: linear-gradient(90deg, rgb(183, 209, 0) 0%, rgb(108, 209, 0) 100%);
+  border-radius: 50em;
+  height: 1em !important;
+}
+@media screen and (min-width: 961px) {
+  .yourself-sec__list {
+    -webkit-flex-wrap: wrap;
+        -ms-flex-wrap: wrap;
+            flex-wrap: wrap;
+  }
+}
+.yourself-sec__list .simplebar-content {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  overflow-x: auto;
-  padding-bottom: 2em;
-  margin-bottom: 5em;
 }
-.yourself-sec__list::-webkit-scrollbar {
-  height: 1em; /* スクロールバーの高さ */
-}
-.yourself-sec__list::-webkit-scrollbar-thumb {
-  background: #FFF; /* ツマミの色 */
-  border-radius: 1em; /* ツマミ両端の丸み */
-}
-.yourself-sec__list::-webkit-scrollbar-track {
-  background: -webkit-gradient(linear, left top, right top, from(rgb(183, 209, 0)), to(rgb(108, 209, 0)));
-  background: -webkit-linear-gradient(left, rgb(183, 209, 0) 0%, rgb(108, 209, 0) 100%);
-  background: linear-gradient(90deg, rgb(183, 209, 0) 0%, rgb(108, 209, 0) 100%); /* トラックの色 */
-  border-radius: 1em; /* トラック両端の丸み */
+@media screen and (min-width: 961px) {
+  .yourself-sec__list .simplebar-content {
+    -webkit-flex-wrap: wrap;
+        -ms-flex-wrap: wrap;
+            flex-wrap: wrap;
+  }
 }
 .yourself-sec__list li {
-  width: 22%;
   -webkit-flex-shrink: 0;
       -ms-flex-negative: 0;
           flex-shrink: 0;
-  margin-right: 2%;
   font-weight: bold;
   background: #FFF;
   padding: 2em;
+}
+@media screen and (min-width: 961px) {
+  .yourself-sec__list li {
+    width: 23%;
+    margin: 2% 1% 0;
+  }
 }
 @media screen and (max-width: 960px) {
   .yourself-sec__list li {
@@ -526,6 +556,14 @@
           flex: 1;
 }
 
+.lineup-slider {
+  position: relative;
+}
+@media screen and (min-width: 641px) {
+  .lineup-slider .swiper-container {
+    width: 90%;
+  }
+}
 .lineup-slider .swiper-slide {
   height: auto;
 }
@@ -644,6 +682,13 @@
 }
 .studio-area__list {
   font-size: 1.25em;
+  font-weight: 500;
+}
+.studio-area__list li {
+  cursor: pointer;
+}
+.studio-area__list li:hover {
+  color: #B7D100;
 }
 .studio-area__list li + li {
   margin-top: 0.5em;
@@ -659,6 +704,11 @@
   vertical-align: middle;
 }
 
+.studio-read {
+  text-align: center;
+  font-weight: 500;
+}
+
 .studio-slider {
   margin: 3em auto;
   max-width: 1280px;
@@ -668,6 +718,41 @@
 @media screen and (max-width: 640px) {
   .studio-slider {
     width: 90%;
+  }
+}
+.studio-slider .slick-arrow {
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translate(0, -50%);
+          transform: translate(0, -50%);
+  -webkit-transition: opacity 0.3s;
+  transition: opacity 0.3s;
+  width: 1.6875em;
+  height: 3.125em;
+  background-size: 100% auto;
+  text-indent: -9999px;
+}
+.studio-slider .slick-arrow.slick-disabled {
+  opacity: 0;
+}
+.studio-slider .slick-next {
+  right: auto;
+  left: calc(100% + 2em);
+  background-image: url(../img/common/arror_r.svg);
+}
+@media screen and (max-width: 640px) {
+  .studio-slider .slick-next {
+    left: calc(100% + 1em);
+  }
+}
+.studio-slider .slick-prev {
+  left: auto;
+  right: calc(100% + 2em);
+  background-image: url(../img/common/arror_l.svg);
+}
+@media screen and (max-width: 640px) {
+  .studio-slider .slick-prev {
+    right: calc(100% + 1em);
   }
 }
 .studio-slider .swiper-button-next,
@@ -716,6 +801,7 @@
 }
 .studio-list__list .studio-ttl img {
   width: 50%;
+  margin: 0 auto;
 }
 .studio-list__list .studio-txt {
   font-size: 1.25em;

@@ -1,13 +1,13 @@
 (function ($) {
     //ページ内スクロール
-    // $('a[href*="#"]').on('click',function() {
-    //     var target = $(this).attr('href');
-    //     var position = $(target).offset().top;
-    //     var $header     = $('.site-header');
-    //     var fheaderH    = $header.innerHeight();
-    //     $('body,html').animate({scrollTop:position - fheaderH}, 600, 'swing');
-    //     return false;
-    // });
+    $('a[href*="#"]').on('click',function() {
+        var target = $(this).attr('href');
+        var position = $(target).offset().top;
+        var $header     = $('.site-header');
+        var fheaderH    = $header.innerHeight();
+        $('body,html').animate({scrollTop:position - fheaderH}, 600, 'swing');
+        return false;
+    });
     //スマホグロナビボタン
     $('.menu-btn').on('click',function(){
         $(this).toggleClass('menu-btn--opened');
