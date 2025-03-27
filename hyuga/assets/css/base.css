@@ -666,7 +666,7 @@ sup {
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 99999;
+  z-index: 999;
   font-size: clamp(0.625em, 1vw, 1em);
   background: #FFF;
   padding: 0 0 0 0;
