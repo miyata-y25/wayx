@@ -674,6 +674,11 @@
   max-width: 800px;
   margin: 3em auto;
 }
+@media screen and (min-width: 769px) {
+  .studio-area {
+    display: none;
+  }
+}
 .studio-area__ttl {
   text-align: center;
   font-size: 1.875em;
@@ -792,6 +797,27 @@
   }
 }
 
+@media screen and (min-width: 769px) {
+  .studio-list {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-flex-wrap: wrap;
+        -ms-flex-wrap: wrap;
+            flex-wrap: wrap;
+  }
+}
+@media screen and (min-width: 769px) {
+  .studio-list__list {
+    width: 32% !important;
+    margin-bottom: 4em;
+  }
+}
 .studio-list__list .studio-thum a {
   display: block;
 }

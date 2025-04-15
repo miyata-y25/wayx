@@ -269,15 +269,17 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <img src="assets/img/top/camp_info_sp.svg" alt="キャンペーン情報">
         </picture>
         <ul class="top-main__note -note">
-            <li>※6ヶ月の在籍が条件となります。途中解約の場合、違約11,000円(税込)を頂戴しております。</li>
+            <li>※キャンペーン適用ありでのご入会の場合、特典1-5が適用となり、6ヶ月の在籍が条件となります。途中解約の場合、違約金11,000円(税込)を頂戴しております。</li>
             <li>※移籍割は他クラブの在籍証明が必要となります。</li>
+            <li>※キャンペーン適用なしでのご入会の場合、特典1-2のみ適用でのご入会が可能です（その場合、在籍条件はなしとなります）。</li>
         </ul>
     </div>
 </section>
 
-<a href="recruit/" class="recruit-bnr"><img src="assets/img/top/recruit_bnr.png" alt="WAYX（ウェイクス）ではスタッフを募集しています"></a>
+<a href="https://jp.indeed.com/jobs?q=WAYX&l=%E5%AE%AE%E5%B4%8E%E7%9C%8C+%E6%97%A5%E5%90%91%E5%B8%82&radius=25&from=searchOnDesktopSerp&vjk=d69854c8e03e548b&advn=4445808393267962
+" target="_blank" class="recruit-bnr"><img src="assets/img/top/recruit_bnr.png" alt="WAYX（ウェイクス）ではスタッフを募集しています"></a>
 
-<section class="sec -news" id="link02">
+<!-- <section class="sec -news" id="link02">
     <h2 class="sec__ttl">
         <span class="sec__ttl__en">NEWS</span>
     </h2>
@@ -289,7 +291,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <li><time datetime="2025-03-01">2025.03.01</time><a href="news/detail.html">スタッフを募集のおしらせを公開しました。</a></li>
     </ul>
     <p class="news-more"><a href="news/">READ MORE</a></p>
-</section>
+</section> -->
 
 <a href="https://lin.ee/bsV9tuX" target="_blank" class="line-bnr"><img src="assets/img/top/line_bnr.svg" alt="OPEN前5月下旬無料開放予定"></a>
 
@@ -1450,32 +1452,64 @@ var mySwiperMain4 = new Swiper ('.lineup-slider.--04 .swiper-container', {
 <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
 <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
 <script>
-$(document).ready(() => {
-    $(".studio-list").slick({
-        infinite: true,
-        centerMode: true,
-        centerPadding: 0,
-        slidesToShow: 3,
-        slidesToScroll: 1,
-        swipeToSlide: true,
-        responsive: [
-        {
-            breakpoint: 1080,
-            settings: {
-                slidesToShow: 3,
+function checkBreakPoint() {
+	w = $(window).width();
+	if (w <= 767) {
+		// スマホ向け（767px以下のとき）
+        $(".studio-list").not('.slick-initialized').slick({
+            infinite: true,
+            centerMode: true,
+            centerPadding: 0,
+            slidesToShow: 3,
+            slidesToScroll: 1,
+            swipeToSlide: true,
+            responsive: [
+            {
+                breakpoint: 640,
+                settings: {
+                    slidesToShow: 1,
+                },
             },
-            breakpoint: 768,
-            settings: {
-                slidesToShow: 2,
-            },
-            breakpoint: 640,
-            settings: {
-                slidesToShow: 1,
-            },
-        },
-        ],
-    });
+            ],
+        });
+	} else {
+		// PC向け
+		$('.studio-list.slick-initialized').slick('unslick');
+	}
+}
+// ウインドウがリサイズする度にチェック
+$(window).resize(function(){
+	checkBreakPoint();
 });
+// 初回チェック
+checkBreakPoint();
+
+// $(document).ready(() => {
+//     $(".studio-list").slick({
+//         infinite: true,
+//         centerMode: true,
+//         centerPadding: 0,
+//         slidesToShow: 3,
+//         slidesToScroll: 1,
+//         swipeToSlide: true,
+//         responsive: [
+//         {
+//             breakpoint: 1080,
+//             settings: {
+//                 slidesToShow: 3,
+//             },
+//             breakpoint: 768,
+//             settings: {
+//                 slidesToShow: 2,
+//             },
+//             breakpoint: 640,
+//             settings: {
+//                 slidesToShow: 1,
+//             },
+//         },
+//         ],
+//     });
+// });
 $('.slider-jump01').on('click', function() {
     $('.studio-list').slick('slickGoTo', 0, false);
 });

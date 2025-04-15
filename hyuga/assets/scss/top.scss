@@ -614,6 +614,9 @@ body {
     padding: 2em;
     max-width: 800px;
     margin: 3em auto;
+    @include min-screen($screen-sm + 1) {
+        display: none;
+    }
     &__ttl {
         text-align: center;
         font-size: (30em/16);
@@ -716,7 +719,16 @@ body {
     }
 }
 .studio-list {
+    @include min-screen($screen-sm + 1) {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
     &__list {
+        @include min-screen($screen-sm + 1) {
+            width: 32% !important;
+            margin-bottom: 4em;
+        }
         .studio-thum {
             a {
                 display: block;
