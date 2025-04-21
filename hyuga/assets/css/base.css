@@ -287,6 +287,7 @@ a {
 }
 .btn:hover {
   opacity: 0.8;
+  color: #FFF;
 }
 .btn--wt {
   color: #E60012;
@@ -693,6 +694,10 @@ sup {
 }
 .site-header__logo img {
   width: auto;
+  height: 100%;
+}
+.site-header__logo a {
+  display: block;
   height: 100%;
 }
 .site-header__sns {

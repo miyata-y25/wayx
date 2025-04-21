@@ -714,6 +714,14 @@
   font-weight: 500;
 }
 
+.studio-mv {
+  max-width: 800px;
+  margin: 3em auto;
+}
+.studio-mv a {
+  display: block;
+}
+
 .studio-slider {
   margin: 3em auto;
   max-width: 1280px;

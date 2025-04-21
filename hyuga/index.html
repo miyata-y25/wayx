@@ -838,6 +838,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             流行りの格闘技系エクササイズやトランポリンエクササイズの他、ダンスプログラムやエアロビクス、<br>
             ヨガなど多彩なプログラムを壁一面の大画面で24時間お楽しみ頂けます。            
         </p>
+        <div class="studio-mv"><a href="https://www.youtube.com/embed/s6PeqiDcUss?si=CZugjeInpmN8ngeL" target="_blank"><img src="http://img.youtube.com/vi/s6PeqiDcUss/maxresdefault.jpg" alt=""></a></div>
         <div class="studio-area">
             <h3 class="studio-area__ttl">スタジオプログラム一覧</h3>
             <ul class="studio-area__list">
@@ -1239,8 +1240,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <h3 class="site-footer__logo"><img src="https://wayx.jp/wp-content/themes/WAYX-theme/images/logo-1.png" alt="WAYX 入会"></h3>
     <ul class="site-footer__nav">
         <li><a href="law/">特定商取引法に基づく表記</a></li>
-        <li><a href="privacy/">プライバシーポリシー</a></li>
-        <li><a href="contact/">お問い合わせ</a></li>
+        <!-- <li><a href="privacy/">プライバシーポリシー</a></li>
+        <li><a href="contact/">お問い合わせ</a></li> -->
     </ul>
     <p class="copyright">
         掲載されている写真はイメージです<br>
@@ -1411,44 +1412,6 @@ var mySwiperMain4 = new Swiper ('.lineup-slider.--04 .swiper-container', {
         }
     },
 });
-
-// var studioMain = new Swiper ('.studio-slider .swiper-container', {
-//     // オプションパラメータ(一部のみ抜粋)
-//     loop: false, // 最後のスライドまで到達した場合、最初に戻らずに続けてスライド可能にするか。
-//     speed: 500, // スライドが切り替わるトランジション時間(ミリ秒)。
-//     slidesPerView: '3', // 何枚のスライドを表示するか
-//     allowTouchMove: true,
-//     loopedSlides: 4, // ループの後に、いくつのクローンを用意するか。
-//     spaceBetween: 40, // スライド間の余白サイズ(ピクセル)
-//     direction: 'horizontal', // スライド方向。 'horizontal'(水平) か 'vertical'(垂直)。effectオプションが 'slide' 以外は無効。
-//     effect: 'slide', // "slide", "fade"(フェード), "cube"(キューブ回転), "coverflow"(カバーフロー) または "flip"(平面回転)
-
-//     // スライダーの自動再生
-//     autoplay: false,
-
-//     // 前後スライドへのナビゲーションを表示する場合
-//     navigation: {
-//         prevEl: '.studio-slider .swiper-button-prev', // 前のスライドボタンのセレクタ
-//         nextEl: '.studio-slider .swiper-button-next', // 次のスライドボタンのセレクタ
-//     },
-
-//     breakpoints: {
-//         1080: {
-//             allowTouchMove: true,
-//             spaceBetween: 20,
-//             slidesPerView: 3,
-//         },
-//         768: {
-//             allowTouchMove: true,
-//             spaceBetween: 20,
-//             slidesPerView: 2,
-//         },
-//         640: {
-//             spaceBetween: 20,
-//             slidesPerView: 1
-//         }
-//     },
-// });
 </script>
 
 <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
@@ -1486,32 +1449,6 @@ $(window).resize(function(){
 // 初回チェック
 checkBreakPoint();
 
-// $(document).ready(() => {
-//     $(".studio-list").slick({
-//         infinite: true,
-//         centerMode: true,
-//         centerPadding: 0,
-//         slidesToShow: 3,
-//         slidesToScroll: 1,
-//         swipeToSlide: true,
-//         responsive: [
-//         {
-//             breakpoint: 1080,
-//             settings: {
-//                 slidesToShow: 3,
-//             },
-//             breakpoint: 768,
-//             settings: {
-//                 slidesToShow: 2,
-//             },
-//             breakpoint: 640,
-//             settings: {
-//                 slidesToShow: 1,
-//             },
-//         },
-//         ],
-//     });
-// });
 $('.slider-jump01').on('click', function() {
     $('.studio-list').slick('slickGoTo', 0, false);
 });
@@ -1536,6 +1473,10 @@ $('.slider-jump06').on('click', function() {
 <script src="assets/js/plugin/modaal.min.js"></script>
 <script>
 $(".studio-thum a").modaal({
+    type: 'video',
+    hide_close: 'true'
+});
+$(".studio-mv a").modaal({
     type: 'video',
     hide_close: 'true'
 });
