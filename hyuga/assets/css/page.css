@@ -92,6 +92,10 @@
   text-align: right;
   margin-bottom: 3em !important;
 }
+.single-area > *,
+.page-area > * {
+  font-family: "Noto Sans JP", sans-serif;
+}
 .single-area > *:not(:last-child),
 .page-area > *:not(:last-child) {
   margin-bottom: 1em;
